@@ -20,7 +20,11 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   let newItem = req.body.newItem;
-
+  console.log(newItem);
+  if(newItem==""){
+    res.redirect("/")
+    return
+  }
   if (req.body.list === "Work List") {
     workItems.push(newItem);
     res.redirect("/work");
